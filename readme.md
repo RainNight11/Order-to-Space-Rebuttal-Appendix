@@ -1,4 +1,4 @@
-# Rebuttal Appendix: Order Is Not Layout: Order-to-Space Bias in Image Generation
+# Rebuttal Appendix -- Order Is Not Layout: Order-to-Space Bias in Image Generation
 
 ## Table 1. 
 
