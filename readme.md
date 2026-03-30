@@ -2,8 +2,7 @@
 
 ## Table 1. Quantitative comparison of generation quality
 
-CLIPScore (↑) measures semantic alignment between generated images and text prompts, while FID (↓) evaluates distribution similarity to real images. All FID results are computed on MSCOCO2017 val with 200 generated samples per model.
-
+CLIPScore (↑) measures semantic alignment, while FID (↓) evaluates distribution similarity to real images. FID is computed on MSCOCO2017 validation set with 200 generated samples per model.
 
 | Model | CLIPScore ↑ | FID ↓ |
 |---|---:|---:|
@@ -12,48 +11,24 @@ CLIPScore (↑) measures semantic alignment between generated images and text pr
 | Qwen-Image | **26.37** | 229.15 |
 | Qwen-LoRA | 26.25 | 226.11 |
 
-## Table 2. FID comparison on MSCOCO2017 val
+## Table 2. Invalid rates under different evaluation settings
 
-FID is computed against MSCOCO2017 validation set using 200 generated samples per model. Lower is better (↓).
+Invalid rate (↓) is the proportion of invalid samples under Hom, Ali, and Rev settings for both T2I and I2I tasks.
 
-| Model | Reference | #Gen | FID ↓ |
-|---|---|---:|---:|
-| Qwen-Image | MSCOCO2017 val | 200 | 229.15 |
-| Qwen-LoRA | MSCOCO2017 val | 200 | 226.11 |
-| FLUX-dev | MSCOCO2017 val | 200 | **220.24** |
-| FLUX-dev-LoRA | MSCOCO2017 val | 200 | 223.68 |
+| Model | T2I Hom ↓ | T2I Ali ↓ | T2I Rev ↓ | I2I Hom ↓ | I2I Ali ↓ | I2I Rev ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| SDXL | 34.41% (585/1700) | 32.50% (130/400) | 28.00% (112/400) | 26.73% (294/1100) | 26.18% (288/1100) | 29.73% (327/1100) |
+| SD3.5 | 13.82% (235/1700) | 16.00% (64/400) | 17.25% (69/400) | 17.64% (194/1100) | 18.00% (198/1100) | 16.27% (179/1100) |
+| FLUX-dev | 12.82% (218/1700) | 12.25% (49/400) | 13.00% (52/400) | 15.73% (173/1100) | 13.55% (149/1100) | 15.73% (173/1100) |
+| Qwen-Image | 13.41% (228/1700) | 12.00% (48/400) | 13.25% (53/400) | 16.55% (182/1100) | 11.55% (127/1100) | 14.64% (161/1100) |
+| DALL-E 3 | 14.47% (246/1700) | 14.50% (58/400) | 13.50% (54/400) | -- | -- | -- |
+| Midjourney v7 | 12.35% (210/1700) | 11.00% (44/400) | 11.25% (45/400) | 11.64% (128/1100) | 10.36% (114/1100) | 12.09% (133/1100) |
+| Kling-v2 | 5.06% (86/1700) | 10.50% (42/400) | 13.25% (53/400) | 6.91% (76/1100) | 7.82% (86/1100) | 5.36% (59/1100) |
+| GPT-Image | 3.12% (53/1700) | 7.50% (30/400) | 8.25% (33/400) | 3.18% (35/1100) | 2.82% (31/1100) | 4.36% (48/1100) |
+| NanoBanana 1 | 3.88% (66/1700) | 4.75% (19/400) | 7.50% (30/400) | 2.64% (29/1100) | 3.18% (35/1100) | 3.55% (39/1100) |
 
-## Table 3. Invalid rate across different generation settings
 
-Invalid rate (↓) is computed as the proportion of invalid samples under Hom, Ali, and Rev settings for both T2I and I2I tasks.
-
-The reward is a centered score, where negative values correspond to misaligned (invalid) samples and positive values indicate better alignment. The relatively large variance reflects the diversity of generation quality across models and prompts.
-
-| Model | T2I Hom invalid | T2I Ali invalid | T2I Rev invalid | I2I Hom invalid | I2I Ali invalid | I2I Rev invalid |
-|---|---|---|---|---|---|---|
-| SDXL | 585 / 1700 = 34.41% | 130 / 400 = 32.50% | 112 / 400 = 28.00% | 294 / 1100 = 26.73% | 288 / 1100 = 26.18% | 327 / 1100 = 29.73% |
-| SD3.5 | 235 / 1700 = 13.82% | 64 / 400 = 16.00% | 69 / 400 = 17.25% | 194 / 1100 = 17.64% | 198 / 1100 = 18.00% | 179 / 1100 = 16.27% |
-| FLUX-dev | 218 / 1700 = 12.82% | 49 / 400 = 12.25% | 52 / 400 = 13.00% | 173 / 1100 = 15.73% | 149 / 1100 = 13.55% | 173 / 1100 = 15.73% |
-| Qwen-Image | 228 / 1700 = 13.41% | 48 / 400 = 12.00% | 53 / 400 = 13.25% | 182 / 1100 = 16.55% | 127 / 1100 = 11.55% | 161 / 1100 = 14.64% |
-| DALL-E 3 | 246 / 1700 = 14.47% | 58 / 400 = 14.50% | 54 / 400 = 13.50% | -- | -- | -- |
-| Midjourney v7 | 210 / 1700 = 12.35% | 44 / 400 = 11.00% | 45 / 400 = 11.25% | 128 / 1100 = 11.64% | 114 / 1100 = 10.36% | 133 / 1100 = 12.09% |
-| Kling-v2 | 86 / 1700 = 5.06% | 42 / 400 = 10.50% | 53 / 400 = 13.25% | 76 / 1100 = 6.91% | 86 / 1100 = 7.82% | 59 / 1100 = 5.36% |
-| GPT-Image | 53 / 1700 = 3.12% | 30 / 400 = 7.50% | 33 / 400 = 8.25% | 35 / 1100 = 3.18% | 31 / 1100 = 2.82% | 48 / 1100 = 4.36% |
-| NanoBanana 1 | 66 / 1700 = 3.88% | 19 / 400 = 4.75% | 30 / 400 = 7.50% | 29 / 1100 = 2.64% | 35 / 1100 = 3.18% | 39 / 1100 = 3.55% |
-
-## Table 4. Robustness across different VL judges
-
-We report alignment metrics across multiple VL judges to evaluate the robustness of automatic evaluation. Hom denotes homogenization deviation, Ali/Rev denote correctness under different conditions, and Cohen’s κ measures agreement with human annotations. Results show consistent trends across different judges.
-
-| Model (Judge) | Hom (T2I) ↑ | Hom (I2I) ↑ | T2I Ali ↑ | T2I Rev ↑ | I2I Ali ↑ | I2I Rev ↑ | Cohen’s κ ↑ |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Qwen3-VL-8B-Instruct | 94.2 | 63.9 | 85.3 | 12.5 | 90.4 | 83.7 | **0.81** |
-| InternVL3-8B | 90.2 | 59.8 | 84.8 | 24.3 | 94.9 | 92.9 | 0.72 |
-| LLaMA-3.2-11B-Vision | 97.1 | 73.3 | 97.0 | 2.4 | 89.7 | 87.6 | 0.62 |
-| LLaVA-Critic-7B | 54.9 | 60.2 | 91.4 | 23.8 | 96.9 | 95.2 | 0.47 |
-| **Human** | 90.3 | 68.7 | 82.0 | 9.2 | 89.8 | 82.5 | — |
-
-## Table 5. Full 3-class confusion matrices between human annotations and different VL judges
+## Table 3. Full 3-class confusion matrices between human annotations and different VL judges
 
 Full 3-class confusion matrices (labels 0/1/2) between human annotations (rows) and VL judges (columns) on the 2,400-sample validation set. Each judge occupies a 4×4 block including marginal totals. Cohen’s κ is reported in the header.
 
@@ -118,9 +93,9 @@ Full 3-class confusion matrices (labels 0/1/2) between human annotations (rows) 
   </tbody>
 </table>
 
-## Table 6. OTS bias under multi-entity and diverse spatial layouts
+## Table 4. OTS bias under multi-entity and diverse spatial layouts
 
-We extend OTS-Bench beyond two-entity left–right settings to (i) three-entity compositions and (ii) alternative spatial layouts (up–down and front–behind). We report homogenization (Hom), alignment correctness (Ali/Rev), and OTS score. Results show that OTS bias persists in multi-entity settings, while no consistent pattern is observed in non-horizontal layouts.
+We extend OTS-Bench beyond two-entity left–right settings to (i) three-entity compositions and (ii) alternative spatial layouts (up–down and front–behind). We report homogenization (Hom), alignment correctness (Ali/Rev), and OTS score. The results suggest that OTS behavior extends to multi-entity settings, while its effect under non-horizontal layouts appears less consistent.
 
 ### (a) Three-entity setting
 
@@ -136,9 +111,9 @@ We extend OTS-Bench beyond two-entity left–right settings to (i) three-entity 
 ### (b) Alternative spatial layouts (non-horizontal)
 
 | Model | Up-Down A | Up-Down B | Up-Down Invalid | Up-Down OTS ↑ | Front-Behind A | Front-Behind B | Front-Behind Invalid | Front-Behind OTS ↑ |
-|---|---:|---:|---|---:|---:|---:|---|---:|
-| Qwen-Image | 41 | 28 | 31/100 = 31% | 18.8 | 37 | 30 | 33/100 = 33% | 10.4 |
-| FLUX-dev | 36 | 20 | 34/100 = 34% | **28.6** | 28 | 33 | 39/100 = 39% | 8.2 |
-| SD3.5 | 27 | 29 | 44/100 = 44% | 3.6 | 38 | 27 | 35/100 = 35% | 16.9 |
-| GPT-Image | 36 | 45 | 19/100 = 19% | 11.1 | 33 | 44 | 23/100 = 23% | 14.3 |
-| NanoBanana 1 | 37 | 49 | **14/100 = 14%** | 14.0 | 51 | 31 | **18/100 = 18%** | **24.4** |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Qwen-Image | 41 | 28 | 31%(31/100) | 18.8 | 37 | 30 | 33%(33/100) | 10.4 |
+| FLUX-dev | 36 | 20 | 34%(34/100) | **28.6** | 28 | 33 | 39%(39/100) | 8.2 |
+| SD3.5 | 27 | 29 | 44%(44/100) | 3.6 | 38 | 27 | 35%(35/100) | 16.9 |
+| GPT-Image | 36 | 45 | 19%(19/100) | 11.1 | 33 | 44 | 23%(23/100) | 14.3 |
+| NanoBanana 1 | 37 | 49 | **14%(14/100)** | 14.0 | 51 | 31 | **18%(18/100)** | **24.4** |
