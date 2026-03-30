@@ -1,6 +1,6 @@
 # Rebuttal Appendix: Order Is Not Layout: Order-to-Space Bias in Image Generation
 
-## Table 1: 
+## Table 1. 
 
 *CLIPScore (↑) measures semantic alignment between generated images and prompts, while FID (↓) evaluates distribution similarity to real images. FID is computed on the MSCOCO2017 validation set with 200 generated samples per model.*
 
@@ -11,7 +11,7 @@
 | Qwen-Image | **26.37** | 229.15 |
 | Qwen-LoRA | 26.25 | 226.11 |
 
-## Table 2: 
+## Table 2. 
 
 *Invalid rate (↓) denotes the proportion of invalid samples under Hom, Ali, and Rev settings for both T2I and I2I tasks.*
 
@@ -28,7 +28,7 @@
 | NanoBanana 1 | 3.88% (66/1700) | 4.75% (19/400) | 7.50% (30/400) | 2.64% (29/1100) | 3.18% (35/1100) | 3.55% (39/1100) |
 
 
-## Table 3: 
+## Table 3. 
 
 *Full 3-class confusion matrices (labels 0/1/2) between human annotations (rows) and VL judges (columns) on the 2,400-sample validation set. Each judge occupies a 4×4 block including marginal totals, with Cohen’s κ reported in the header.*
 
@@ -93,7 +93,7 @@
   </tbody>
 </table>
 
-## Table 4: 
+## Table 4. 
 
 *Evaluation of OTS behavior beyond two-entity left–right settings, including three-entity compositions and alternative spatial layouts (up–down and front–behind). We report homogenization (Hom), alignment correctness (Ali/Rev), and OTS score.*
 
