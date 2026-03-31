@@ -127,3 +127,10 @@
 | SD3.5 | 27 | 29 | 44% | 3.6 | 38 | 27 | 35% | 16.9 |
 | GPT-Image | 36 | 45 | 19% | 11.1 | 33 | 44 | 23% | 14.3 |
 | NanoBanana 1 | 37 | 49 | **14%** | 14.0 | 51 | 31 | **18%** | **24.4** |
+
+## Figure 1. 
+
+*ImageReward distributions before and after SFT. Broad distributions and negative values are expected; SFT slightly improves the mean while preserving overall shape.*
+
+
+![](figures/fig1.png)
