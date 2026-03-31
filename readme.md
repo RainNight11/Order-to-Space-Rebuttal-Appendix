@@ -1,6 +1,17 @@
 # Rebuttal Appendix -- Order Is Not Layout: Order-to-Space Bias in Image Generation
 
-## Table 1.
+## Table 1. 
+
+*CLIPScore (↑) measures semantic alignment between generated images and prompts, while FID (↓) evaluates distribution similarity to real images. FID is computed on the MSCOCO2017 validation set with 200 generated samples per model.*
+
+| Model | CLIPScore ↑ | FID ↓ |
+|---|---:|---:|
+| FLUX-dev | 24.35 | **220.24** |
+| FLUX-dev-LoRA | 24.03 | 223.68 |
+| Qwen-Image | **26.37** | 229.15 |
+| Qwen-LoRA | 26.25 | 226.11 |
+
+## Table 2.
 
 *Detector-assisted judging with Grounding-DINO. We evaluate a hybrid variant where Grounding-DINO provides auxiliary localization after validity screening by Qwen3-VL-8B. Results are reported on the same 2,400 human-annotated samples. The improvement is modest while incurring additional inference cost.*
 
@@ -11,16 +22,7 @@
 | Qwen3-VL-8B + Grounding-DINO-assisted | **91.13%** | **0.825** | 0.543 s |
 | Δ | +0.71 pts | +0.014 | +0.187 s (+52.7%) |
 
-## Table 2. 
 
-*CLIPScore (↑) measures semantic alignment between generated images and prompts, while FID (↓) evaluates distribution similarity to real images. FID is computed on the MSCOCO2017 validation set with 200 generated samples per model.*
-
-| Model | CLIPScore ↑ | FID ↓ |
-|---|---:|---:|
-| FLUX-dev | 24.35 | **220.24** |
-| FLUX-dev-LoRA | 24.03 | 223.68 |
-| Qwen-Image | **26.37** | 229.15 |
-| Qwen-LoRA | 26.25 | 226.11 |
 
 ## Table 3. 
 
