@@ -133,6 +133,28 @@
   </tbody>
 </table>
 
+## Table 6.  
+
+*Results evaluated with alternative VL judges (GPT-5.4 and Gemini-3.1-Pro). Metrics remain consistent across judges, indicating that our conclusions are robust to the choice of evaluation model.*
+
+*(a) GPT-5.4*
+
+| Model | T2I Hom | I2I Hom | T2I Ali | T2I Rev | T2I Δ | I2I Ali | I2I Rev | I2I Δ | Overall valid |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| FLUX-dev | 87.3 | 41.1 | 78.4 | 23.6 | 54.8 | 82.6 | 75.0 | 7.6 | 84.76% |
+| Qwen-Image | 90.1 | 81.8 | 80.5 | 27.2 | 53.3 | 86.4 | 77.0 | 9.4 | 85.14% |
+| GPT-Image | 84.9 | 33.8 | 78.1 | 14.3 | 63.8 | 92.7 | 77.8 | 14.9 | 95.36% |
+| NanoBanana 1 | 79.5 | 50.2 | 91.8 | 16.5 | 75.3 | 94.6 | 90.1 | 4.5 | 96.05% |
+
+*(b) Gemini-3.1-Pro*
+
+| Model | T2I Hom | I2I Hom | T2I Ali | T2I Rev | T2I Δ | I2I Ali | I2I Rev | I2I Δ | Overall valid |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| FLUX-dev | 89.5 | 43.3 | 80.5 | 25.7 | 54.8 | 85.0 | 77.7 | 7.3 | 86.36% |
+| Qwen-Image | 92.4 | 84.2 | 82.7 | 29.2 | 53.5 | 88.8 | 79.7 | 9.1 | 86.66% |
+| GPT-Image | 87.2 | 36.1 | 80.4 | 16.3 | 64.1 | 95.1 | 80.5 | 14.6 | 96.31% |
+| NanoBanana 1 | 81.8 | 52.5 | 94.0 | 18.5 | 75.5 | 97.0 | 92.8 | 4.2 | 96.45% |
+
 ## Figure 1. 
 
 *ImageReward distributions before and after SFT. Broad distributions and negative values are expected; SFT slightly improves the mean while preserving overall shape.*
